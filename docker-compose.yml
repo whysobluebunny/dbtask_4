@@ -10,7 +10,7 @@ services:
       - ./docker/db/scripts/library:/docker-entrypoint-initdb.d
       - ./docker/db/data/library:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
   trains:
     image: postgres:14.5
@@ -22,7 +22,7 @@ services:
       - ./docker/db/scripts/trains:/docker-entrypoint-initdb.d
       - ./docker/db/data/trains:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
+      - "5434:5432"
 
   patients:
     image: postgres:14.5
@@ -34,4 +34,4 @@ services:
       - ./docker/db/scripts/patients:/docker-entrypoint-initdb.d
       - ./docker/db/data/patients:/var/lib/postgresql/data
     ports:
-      - "5434:5432"
+      - "5435:5432"
