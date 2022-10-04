@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  library:
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "Bondarenko_206"
+      POSTGRES_USER: "Bondarenko_206"
+      POSTGRES_PASSWORD: "Bondarenko_206"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      ./library:/docker-entrypoint-initdb.d
+      - dz:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  trains:
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "Bondarenko_206"
+      POSTGRES_USER: "Bondarenko_206"
+      POSTGRES_PASSWORD: "Bondarenko_206"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      ./trains:/docker-entrypoint-initdb.d
+      - dz:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  patients:
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "Bondarenko_206"
+      POSTGRES_USER: "Bondarenko_206"
+      POSTGRES_PASSWORD: "Bondarenko_206"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./patients:/docker-entrypoint-initdb.d
+      - dz:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
