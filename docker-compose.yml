@@ -6,10 +6,8 @@ services:
       POSTGRES_DB: "Bondarenko_206"
       POSTGRES_USER: "Bondarenko_206"
       POSTGRES_PASSWORD: "Bondarenko_206"
-      PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      ./library:/docker-entrypoint-initdb.d
-      - dz:/var/lib/postgresql/data
+      - ./docker/db/scripts/library:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
 
@@ -19,10 +17,8 @@ services:
       POSTGRES_DB: "Bondarenko_206"
       POSTGRES_USER: "Bondarenko_206"
       POSTGRES_PASSWORD: "Bondarenko_206"
-      PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      ./trains:/docker-entrypoint-initdb.d
-      - dz:/var/lib/postgresql/data
+      - ./docker/db/scripts/trains:/docker-entrypoint-initdb.d
     ports:
       - "5433:5432"
 
@@ -32,9 +28,7 @@ services:
       POSTGRES_DB: "Bondarenko_206"
       POSTGRES_USER: "Bondarenko_206"
       POSTGRES_PASSWORD: "Bondarenko_206"
-      PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - ./patients:/docker-entrypoint-initdb.d
-      - dz:/var/lib/postgresql/data
+      - ./docker/db/scripts/patients:/docker-entrypoint-initdb.d
     ports:
       - "5434:5432"
